@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 // Desafio de Xadrez - MateCheck
-// Nível Mestre: Recursividade e Movimentos Complexos
+// Nível Mestre
 
-// Configurações de passos
 static const int PASSOS_TORRE  = 5;
 static const int PASSOS_BISPO  = 5;
 static const int PASSOS_RAINHA = 8;
