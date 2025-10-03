@@ -1,22 +1,22 @@
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Nível Mestre
-
+// Quantidade de passos que as peças vão andar
 static const int PASSOS_TORRE  = 5;
 static const int PASSOS_BISPO  = 5;
 static const int PASSOS_RAINHA = 8;
+
+// Movimento do cavalo: 2 pra cima e 1 pra a direita
 static const int CAVALO_UP     = 2;
 static const int CAVALO_RIGHT  = 1;
 
-// Torre recursiva
+// Torre recursiva: mostra "Direita" quantas vezes foi definido
 int torre_direita(int passos) {
-    if (passos <= 0) return 0;
+    if (passos <= 0) return 0;     // quando não houverem mais casas, para
     printf("Direita\n");
-    return torre_direita(passos - 1);
+    return torre_direita(passos - 1); // chama de novo até acabar
 }
 
-// Bispo recursivo
+// Bispo recursivo: anda em diagonal, ou seja, pra cima e para a direita
 int bispo_cima_direita(int passos) {
     if (passos <= 0) return 0;
     printf("Cima\n");
@@ -24,14 +24,14 @@ int bispo_cima_direita(int passos) {
     return bispo_cima_direita(passos - 1);
 }
 
-// Rainha recursiva
+// Rainha recursiva: anda para a esquerda
 int rainha_esquerda(int passos) {
     if (passos <= 0) return 0;
     printf("Esquerda\n");
     return rainha_esquerda(passos - 1);
 }
 
-// Bispo com loops aninhados
+// Bispo com loops aninhados: mesma ideia, só que usando for
 int bispo_loops(int passos) {
     for (int v = 0; v < passos; v++) {
         for (int up = 0; up < 1; up++) printf("Cima\n");
@@ -40,19 +40,21 @@ int bispo_loops(int passos) {
     return 0;
 }
 
-// Cavalo com loops complexos
+// Cavalo com loops: 2 casas para cima e 1 para a direita
 int cavalo_complexo(int upTarget, int rightTarget) {
     for (int u = 0; u <= upTarget; u++) {
         for (int r = 0; r <= rightTarget; r++) {
-            if (u == 0 && r == 0) continue;
-            if (u > upTarget || r > rightTarget) break;
+            if (u == 0 && r == 0) continue;   // pula o estado inicial
+            if (u > upTarget || r > rightTarget) break; // não deixa passar do limite
+
+            // quando chega no L, imprime os passos
             if (u == upTarget && r == rightTarget) {
                 for (int i = 0; i < upTarget; i++) printf("Cima\n");
                 for (int j = 0; j < rightTarget; j++) printf("Direita\n");
                 break;
             }
         }
-        if (u == upTarget) break;
+        if (u == upTarget) break; // encerra o loop externo
     }
     return 0;
 }
