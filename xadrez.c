@@ -1,13 +1,13 @@
 #include <stdio.h>
 
 // Quantidade de passos que as peças vão andar
-static const int PASSOS_TORRE  = 5;
-static const int PASSOS_BISPO  = 5;
-static const int PASSOS_RAINHA = 8;
+const int PASSOS_TORRE  = 5;
+const int PASSOS_BISPO  = 5;
+const int PASSOS_RAINHA = 8;
 
 // Movimento do cavalo: 2 pra cima e 1 pra a direita
-static const int CAVALO_UP     = 2;
-static const int CAVALO_RIGHT  = 1;
+const int CAVALO_UP     = 2;
+const int CAVALO_RIGHT  = 1;
 
 // Torre recursiva: mostra "Direita" quantas vezes foi definido
 int torre_direita(int passos) {
